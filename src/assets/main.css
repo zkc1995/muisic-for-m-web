@@ -1,0 +1,293 @@
+body,
+html,
+ul,
+li,
+div,
+span,
+a,
+h2,
+p,
+input {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: #666;
+}
+img{
+    vertical-align: middle;
+    border: none;
+    /* display: block; */
+}
+
+p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*设置成弹性盒子 */
+    display: -webkit-box;
+    /*显示的个数 */
+    -webkit-line-clamp: 2;
+    /* 属性规定框的子元素应该被水平或垂直排列。 */
+    -webkit-box-orient: vertical;
+}
+
+body {
+    color: #666;
+    font-size: 16px;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+
+/* 头部导航样式 */
+#header ul {
+    display: flex;
+}
+
+#header ul li {
+    flex: 1;
+    text-align: center;
+}
+
+#header ul li a {
+    padding: 10px 0;
+}
+
+#header ul li.active a {
+    background-color: lightblue;
+    color: #fff;
+}
+
+
+/* 推荐歌单,最新音乐标题样式 */
+#recommend .title,
+#newsongs .title {
+    position: relative;
+    font-size: 12px;
+    padding: 15px 10px;
+}
+
+#recommend .title::before,
+#newsongs .title::before {
+    position: absolute;
+    left: 0;
+    top: 18px;
+    content: ' ';
+    height: 20px;
+    width: 3px;
+    background-color: lightblue;
+}
+
+/* 推荐歌单样式 */
+#recommend .content ul {
+    display: flex;
+}
+
+#recommend .content li {
+    position: relative;
+    flex: 1;
+    height: 160px;
+    font-size: 14px;
+    background-color: #fff;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+#recommend .content li:not(:nth-child(3)) {
+    margin-right: 2px;
+}
+
+#recommend .content li img {
+    width: 123px;
+    height: 122px;
+}
+
+#recommend .content li .listen-num {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 12px;
+    color: #fff;
+}
+
+/* 最新歌单样式 */
+#newsongs .content li{
+    padding-left: 15px;
+}
+#newsongs .content li a{
+    display: flex;
+    height: 60px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 5px;
+}
+#newsongs .content li .song-info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#newsongs .content .song-info .song-artist{
+    font-size: 12px;
+    line-height: 24px;
+}
+#newsongs .content li .song-play{
+    text-align: center;
+    width: 32px;
+    height: 45px;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+}
+#newsongs .content li .song-play span{
+    display: block;
+    /* text-align: center; */
+    /* padding: 8px; */
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    padding-left: 2px;
+    color: #999;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+/* 热歌榜样式 */
+/* #hotsongs li{
+    padding-left: 40px;
+} */
+#hotsongs li .range-num{
+    float: left;
+    width: 40px;
+    text-align: center;
+    line-height: 60px;
+}
+#hotsongs li a{
+    margin-left: 40px;
+    display: flex;
+    height: 60px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 5px;
+}
+#hotsongs li .song-info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#hotsongs .song-info .song-artist{
+    font-size: 12px;
+    line-height: 24px;
+}
+#hotsongs li .song-play{
+    text-align: center;
+    width: 32px;
+    height: 45px;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+}
+#hotsongs li .song-play span{
+    display: block;
+    /* text-align: center; */
+    /* padding: 8px; */
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    padding-left: 2px;
+    color: #999;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+/* 搜索样式 */
+#search .search-bar{
+    height: 29px;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+#search .search-bar input{
+    width: 100%;
+    border-radius: 20px;
+    height: 30px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    line-height: 25px;
+    border: none;
+    background-color: #eee;
+}
+#search .search-result ul{
+    height: 500px;
+    overflow: auto;
+}
+#search .search-result li{
+    padding-left: 15px;
+}
+#search .search-result li a{
+    display: flex;
+    height: 60px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 5px;
+}
+#search .search-result li .song-info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#search .search-result .song-info .song-artist{
+    font-size: 12px;
+    line-height: 24px;
+}
+#search .search-result li .song-play{
+    text-align: center;
+    width: 32px;
+    height: 45px;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+}
+#search .search-result li .song-play span{
+    display: block;
+    /* text-align: center; */
+    /* padding: 8px; */
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    padding-left: 2px;
+    color: #999;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+/* 底部版权样式 */
+#footer {
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}
