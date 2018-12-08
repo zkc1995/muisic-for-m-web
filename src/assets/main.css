@@ -111,6 +111,10 @@ html {
     margin-right: 2px;
 }
 
+#recommend .content li a>div{
+    width: 123px;
+    height: 122px;
+}
 #recommend .content li img {
     width: 123px;
     height: 122px;
@@ -122,6 +126,10 @@ html {
     right: 2px;
     font-size: 12px;
     color: #fff;
+}
+#recommend .content li p{
+    padding: 4px;
+    font-size: 12px;
 }
 
 /* 最新歌单样式 */
@@ -162,10 +170,8 @@ html {
     width: 25px;
     height: 25px;
     line-height: 25px;
-    font-size: 12px;
-    padding-left: 2px;
+    font-size: 20px;
     color: #999;
-    border: 1px solid #ccc;
     border-radius: 50%;
 }
 
@@ -178,6 +184,10 @@ html {
     width: 40px;
     text-align: center;
     line-height: 60px;
+    color: orangered;
+}
+#hotsongs li:nth-child(n+4) .range-num{
+    color: #ccc;
 }
 #hotsongs li a{
     margin-left: 40px;
@@ -214,10 +224,8 @@ html {
     width: 25px;
     height: 25px;
     line-height: 25px;
-    font-size: 12px;
-    padding-left: 2px;
+    font-size: 20px;
     color: #999;
-    border: 1px solid #ccc;
     border-radius: 50%;
 }
 
@@ -236,8 +244,26 @@ html {
     line-height: 25px;
     border: none;
     background-color: #eee;
+    outline: none;
 }
+
+/* 搜索热词 */
+#search .search-hotword{
+    padding: 5px 0 0 20px;
+    font-size: 12px;
+}
+#search .search-hotword .title{
+    padding: 10px 0; 
+}
+#search .search-hotword button{
+    font-size: 14px;    
+    padding: 9px 14px;
+    margin:0 10px 10px 0;
+}
+
+/* 搜索结果列表样式 */
 #search .search-result ul{
+    box-sizing: border-box;
     height: 500px;
     overflow: auto;
 }
@@ -246,7 +272,7 @@ html {
 }
 #search .search-result li a{
     display: flex;
-    height: 60px;
+    height: 70px;
     box-sizing: border-box;
     border-bottom: 1px solid #ccc;
     padding: 10px 5px;
@@ -260,7 +286,7 @@ html {
     text-overflow: ellipsis;
 }
 #search .search-result .song-info .song-artist{
-    font-size: 12px;
+    font-size: 14px;
     line-height: 24px;
 }
 #search .search-result li .song-play{
@@ -278,11 +304,31 @@ html {
     width: 25px;
     height: 25px;
     line-height: 25px;
-    font-size: 12px;
-    padding-left: 2px;
+    font-size: 20px;
     color: #999;
-    border: 1px solid #ccc;
     border-radius: 50%;
+}
+#search .search-history ul li{
+    display: flex;
+    padding-top: 10px;
+    font-size: 16px;
+}
+#search .search-history .history{
+    display: block;
+    padding: 14px 0 0 0;
+    transform: translateX(-10px);
+}
+#search .search-history a{
+    display: block;
+    width: 100%;
+    padding: 10px 10px 10px 0;
+    display: flex;
+    /* padding-left: 20px; */
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc; 
+}
+#search .search-history a .close{
+    color: #ccc;
 }
 
 /* 底部版权样式 */

@@ -3,14 +3,14 @@
     <!-- 头部导航栏 -->
     <header id="header">
       <ul>
-        <li class="active"><a href="#">推荐音乐</a></li>
-        <li><a href="#">热歌榜</a></li>
-        <li><a href="#">搜索</a></li>
+        <li :class="{active:$route.path==='/index'}"><router-link to="/index">推荐音乐</router-link></li>
+        <li :class="{active:$route.path==='/hotSongs'}"><router-link to="/hotSongs">热歌榜</router-link></li>
+        <li :class="{active:$route.path==='/search'}"><router-link to="/search">搜索</router-link></li>
       </ul>
     </header>
     <router-view></router-view>
     <!-- 底部版权信息 -->
-    <footer id="footer">
+    <footer id="footer" v-show="$route.path!='/search'">
       皮皮版权所有©2018
     </footer>
   </div>
@@ -25,11 +25,4 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 </style>
