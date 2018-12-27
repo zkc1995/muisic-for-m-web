@@ -1,13 +1,15 @@
 <template>
   <section id="search">
+    <!-- 搜索框 -->
     <div class="search-bar">
       <input
-        @input="searching"
+        @keyup.enter="searching"
         type="text"
         v-model.trim="words"
         placeholder="搜索歌曲名称"
       >
     </div>
+    <!-- 热搜词 -->
     <div
       class="search-hotword"
       v-show="showinghot"
@@ -15,27 +17,28 @@
       <div class="title">
         热门搜索
       </div>
-      <div
-        class="content"
-        v-loading="loading"
-      >
-        <el-button
+      <div class="content">
+        <mt-button
+          type="default"
           v-for="item,index in hots"
-          round
           :key="index"
-        >{{item.first}}</el-button>
+        >{{item.first}}</mt-button>
       </div>
+      <!-- 搜索历史 -->
       <div class="search-history">
         <ul>
-          <li>
-            <span class="el-icon-time history"></span>
+          <li
+            v-for="(item,index) in history"
+            :key="index"
+          >
             <a href="#">
-              <div class="search-name">张杰</div><span class="el-icon-close close"></span>
+              <div class="search-name">{{item}}</div><span class="iconfont icon-guanbi close"></span>
             </a>
           </li>
         </ul>
       </div>
     </div>
+    <!-- 搜索结果 -->
     <div class="search-result">
       <ul style="display:none">
         <li>
@@ -138,9 +141,9 @@ export default {
   data: function() {
     return {
       hots: [],
-      loading: true,
       showinghot: true,
-      words: ""
+      words: "",
+      history: []
     };
   },
   methods: {
@@ -149,19 +152,26 @@ export default {
         this.showinghot = true;
       } else {
         this.showinghot = false;
-        this.$axios.get(`/search/suggest?keywords=${this.words}`).then(res=>{
-            console.log(res);
+        this.$axios.get(`/search/suggest?keywords=${this.words}`).then(res => {
+          console.log(res);
         });
-        // this.$store.commit('historyList',this.words)
+        if(this.history.length>6){
+          this.history.
+        }
+        this.$store.commit("historyList", this.words);
+        console.log(this.$store.state);
       }
     }
   },
   created() {
+    this.history = this.$store.state.hisList;
     this.$axios.get("/search/hot").then(res => {
       // console.log(res);
       this.hots = res.data.result.hots;
-      this.loading = false;
     });
+  },
+  destroyed() {
+    window.localStorage.setItem("historylist", JSON.stringify(this.history));
   }
 };
 </script>

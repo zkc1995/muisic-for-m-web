@@ -170,7 +170,7 @@ html {
     width: 25px;
     height: 25px;
     line-height: 25px;
-    font-size: 20px;
+    font-size: 34px;
     color: #999;
     border-radius: 50%;
 }
@@ -224,7 +224,7 @@ html {
     width: 25px;
     height: 25px;
     line-height: 25px;
-    font-size: 20px;
+    font-size: 34px;
     color: #999;
     border-radius: 50%;
 }
@@ -304,7 +304,7 @@ html {
     width: 25px;
     height: 25px;
     line-height: 25px;
-    font-size: 20px;
+    font-size: 34px;
     color: #999;
     border-radius: 50%;
 }
@@ -328,7 +328,10 @@ html {
     border-bottom: 1px solid #ccc; 
 }
 #search .search-history a .close{
-    color: #ccc;
+    color: #aaa;
+    display: block;
+    margin-top: 5px;
+    height: 16px;
 }
 
 /* 底部版权样式 */

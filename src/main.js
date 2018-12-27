@@ -1,20 +1,23 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 // 导入样式
-import './assets/main.css'
+import './assets/main.css';
+// 导入字体图标样式
+import "./assets/font/iconfont.css";
 
 // 导入axios模块
 import axios from 'axios'
 Vue.prototype.$axios = axios;
-axios.defaults.baseURL = 'http://localhost:3000'
+// axios基础地址
+axios.defaults.baseURL = 'http://localhost:3000';
 
-// 导入el-ui
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
+// 引入mint-ui
+import MintUI from 'mint-ui';
+import 'mint-ui/lib/style.css';
+Vue.use(MintUI);
 
 // 导入路由
 import VueRouter from 'vue-router'

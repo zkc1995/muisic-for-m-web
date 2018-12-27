@@ -1,5 +1,5 @@
 <template>
-  <section id="hotsongs"  v-loading="loading">
+  <section id="hotsongs">
       <ul>
         <li
           v-for="item,index in hotSongList"
@@ -11,7 +11,7 @@
               <div class="song-title">{{item.name}}</div>
               <div class="song-artist">{{item.ar[0].name}}</div>
             </div>
-            <div class="song-play"><span class="el-icon-caret-right"></span></div>
+            <div class="song-play"><span class="iconfont icon-play"></span></div>
           </a>
         </li>
       </ul>
@@ -22,19 +22,19 @@ export default {
   name: "hotSongs",
   data: function() {
     return {
-      hotSongList: [],
-      loading: true
+      hotSongList: []
     };
   },
   created() {
+    this.$indicator.open();
     this.$axios.get("/top/list?idx=1").then(result => {
       // console.log(result);
       let list = result.data.playlist.tracks;
       for (let i = 0; i < 20; i++) {
         this.hotSongList.push(list[i]);
       }
-      this.loading = false;
       // console.log(this.hotSongList);
+      this.$indicator.close();
     });
   }
 };
